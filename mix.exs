@@ -3,7 +3,7 @@ defmodule OAuth2Ex.Mixfile do
 
   def project do
     [app: :oauth2ex,
-     version: "0.0.8",
+     version: "0.0.9",
      description: description,
      package: package,
      test_coverage: [tool: ExCoveralls],

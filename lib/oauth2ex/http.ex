@@ -67,7 +67,7 @@ defmodule OAuth2Ex.HTTP do
   end
 
   defp decode_body(response) do
-    content_type = response.headers["Content-Type"]
+    content_type = get_header(response.headers, "Content-Type")
     cond do
       content_type != nil and content_type =~ ~r/application\/json/i ->
         response.body |> JSX.decode!
@@ -85,4 +85,10 @@ defmodule OAuth2Ex.HTTP do
   defp parse_as_json(params) do
     JSX.encode!(params)
   end
+
+  defp get_header([{name, value}|t], header_name) do
+    if name == header_name, do: value, else: get_header(t, header_name)
+  end
+
+  defp get_header([], _), do: ""
 end
