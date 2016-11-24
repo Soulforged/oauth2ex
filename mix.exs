@@ -3,7 +3,7 @@ defmodule OAuth2Ex.Mixfile do
 
   def project do
     [app: :oauth2ex,
-     version: "0.0.9",
+     version: "0.0.10",
      description: description,
      package: package,
      test_coverage: [tool: ExCoveralls],
@@ -32,7 +32,7 @@ defmodule OAuth2Ex.Mixfile do
       {:exjsx, "~> 3.1"},
       {:cowboy, "~> 1.0"},
       {:plug, "~> 1.0.2"},
-      {:timex, "~> 0.19.5"},
+      {:timex, "~> 3.1.0"},
       {:excoveralls, "~> 0.3", only: [:dev, :test]},
       {:exvcr, "~> 0.3", only: [:dev, :test]}
     ]

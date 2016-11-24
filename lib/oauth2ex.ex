@@ -96,8 +96,8 @@ defmodule OAuth2Ex do
   """
   def token_expired?(token) do
     if token.expires_at do
-      expires_at = Timex.Date.from(token.expires_at, :secs)
-      if Timex.Date.diff(Timex.Date.now, expires_at, :secs) <= 0 do
+      expires_at = Timex.Duration.from_seconds(token.expires_at)
+      if Timex.Duration.diff(Timex.now, expires_at, :secs) <= 0 do
         true
       else
         false
@@ -140,8 +140,8 @@ defmodule OAuth2Ex do
   end
 
   defp calc_expires_at(expires_in) do
-    Timex.Date.now
-      |> Timex.Date.shift(secs: expires_in)
-      |> Timex.Date.to_secs
+    Timex.now
+      |> Timex.shift(secs: expires_in)
+      |> Timex.to_gregorian_seconds
   end
 end
