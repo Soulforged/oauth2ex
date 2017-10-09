@@ -1,3 +1,9 @@
+0.1.1
+------
+#### Changes
+* Update dependencies.
+* Fix compiler warnings.
+
 0.0.9
 ------
 #### Changes

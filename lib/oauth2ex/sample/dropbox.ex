@@ -31,7 +31,7 @@ defmodule OAuth2Ex.Sample.Dropbox do
   API: https://www.dropbox.com/developers/core/docs#account-info
   """
   def get_account do
-    response = OAuth2Ex.HTTP.get(token, "https://api.dropbox.com/1/account/info")
+    response = OAuth2Ex.HTTP.get(token(), "https://api.dropbox.com/1/account/info")
     response.body |> JSX.decode!
   end
 end

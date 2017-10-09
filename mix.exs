@@ -3,12 +3,12 @@ defmodule OAuth2Ex.Mixfile do
 
   def project do
     [app: :oauth2ex,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
-     description: description,
-     package: package,
+     description: description(),
+     package: package(),
      test_coverage: [tool: ExCoveralls],
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -29,13 +29,13 @@ defmodule OAuth2Ex.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.9"},
-      {:exjsx, "~> 3.2"},
-      {:cowboy, "~> 1.0"},
-      {:plug, "~> 1.3"},
-      {:timex, "~> 3.1.8"},
-      {:excoveralls, "~> 0.5", only: :test},
-      {:exvcr, "~> 0.8", only: :test}
+      {:httpoison, "~> 0.13.0"},
+      {:exjsx, "~> 4.0.0"},
+      {:cowboy, "~> 1.1.2"},
+      {:plug, "~> 1.4.3"},
+      {:timex, "~> 3.1.24"},
+      {:excoveralls, "~> 0.7.4", only: :test},
+      {:exvcr, "~> 0.9.0", only: :test}
     ]
   end
 

@@ -42,13 +42,13 @@ defmodule OAuth2ExClientTest do
   test "using nil parameter client throws error for accessing token" do
     message = ~r/token_store parameter is missing or invalid for the specified OAuth2Ex.Config struct: %OAuth2Ex.Config{.+}./
     assert_raise OAuth2Ex.Error, message, fn ->
-      BasicgParameterClient.token
+      BasicgParameterClient.token()
     end
   end
 
   test "using invalid token_store client throws error for accessing token" do
     assert_raise OAuth2Ex.Error, fn ->
-      InvalidTokenStoreClient.token
+      InvalidTokenStoreClient.token()
     end
   end
 end

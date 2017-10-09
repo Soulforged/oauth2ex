@@ -11,7 +11,7 @@ defmodule OAuth2Ex.Token.Retriever do
     timeout = options[:timeout] || 30_000
 
     Plug.Adapters.Cowboy.http(OAuth2Ex.Token.Listener,
-      [caller: self], port: port)
+      [caller: self()], port: port)
 
     authorize_url = OAuth2Ex.get_authorize_url(config)
     case open_by_browser(authorize_url) do

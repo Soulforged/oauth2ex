@@ -13,7 +13,7 @@ defmodule OAuth2ExTest do
   end
 
   test "initialization of client for pre-defined site" do
-    url = OAuth2Ex.get_authorize_url(config)
+    url = OAuth2Ex.get_authorize_url(config())
 
     assert String.contains?(url, "accounts.google.com/o/oauth2/auth")
     assert String.contains?(url, "client_id=sample_client_id")

@@ -55,8 +55,8 @@ defmodule OAuth2Ex.Token do
   Initiate OAuth 2.0 token retrieval processing.
   """
   def browse_and_retrieve(config, options \\ []) do
-    if config.client_options do
-      options = Keyword.merge(config.client_options, options)
+    options = if config.client_options do
+      Keyword.merge(config.client_options, options)
     end
     OAuth2Ex.Token.Retriever.run(config, options)
   end

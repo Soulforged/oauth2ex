@@ -14,29 +14,29 @@ defmodule OAuth2Ex.Token.Cache do
   Use pid as cache key.
   """
   def key do
-    String.to_atom(inspect self)
+    String.to_atom(inspect self())
   end
 
   def start do
-    if :ets.info(table) == :undefined do
-      :ets.new(table, [:set, :public, :named_table])
+    if :ets.info(table()) == :undefined do
+      :ets.new(table(), [:set, :public, :named_table])
     end
     :ok
   end
 
   def get do
-    start
-    :ets.lookup(table, key)[key]
+    start()
+    :ets.lookup(table(), key())[key()]
   end
 
   def set(value) do
-    start
-    :ets.insert(table, {key, value})
+    start()
+    :ets.insert(table(), {key(), value})
     value
   end
 
   def delete do
-    start
-    :ets.delete(table, key)
+    start()
+    :ets.delete(table(), key())
   end
 end
