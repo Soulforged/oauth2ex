@@ -1,4 +1,5 @@
 defmodule OAuth2Ex do
+  use Timex
   @moduledoc """
   Provides entry points for OAuthEx interfaces.
   """
